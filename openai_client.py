@@ -1,9 +1,9 @@
 from openai import OpenAI
-from config import OPENAI_API_KEY
+import streamlit as st
 
 class ATSAnalyzer:
     def __init__(self):
-        self.client = OpenAI(api_key=OPENAI_API_KEY)
+        self.client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
         self.base_prompt = """You are an ATS expert and career coach. Analyze this resume and provide:
         1. Summary of ATS compatibility
         2. Missing and present keywords from job description

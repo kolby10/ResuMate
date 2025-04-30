@@ -1,9 +1,14 @@
+import os
 import streamlit as st
 from resume_parser import ResumeParser
 from openai_client import ATSAnalyzer
 
+os.environ.pop("HTTP_PROXY", None)
+os.environ.pop("HTTPS_PROXY", None)
+
 # main function, runs the streamlit app
 def main():
+
     # configures the Streamlit page settings
     st.set_page_config(
         page_title="ResuMate", # browser tab title
@@ -11,6 +16,7 @@ def main():
         layout="wide", # makes page layout wider than Streamlit default
         initial_sidebar_state="expanded" # sets sidebar to be open by default
     )
+
 
     # applies custom CSS styling, for improved UI
     st.markdown("""
